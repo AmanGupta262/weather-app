@@ -1,11 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWeather } from "../actions/current";
 import {
   Typography,
-  Button,
-  Paper,
   Card,
   CardContent,
 } from "@material-ui/core";
@@ -37,10 +35,12 @@ const useStyles = makeStyles({
 function CurrentWeather(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const {currentWeather} = useSelector(state => state);
+  console.log(currentWeather);
 
   useEffect(() => {
       dispatch(fetchWeather());
-  },[]) 
+  },[dispatch]) 
 
   return (
     <>
@@ -48,12 +48,12 @@ function CurrentWeather(props) {
         <Card className={classes.cardStyles}>
           <CardContent>
             <Typography variant="h4" className={classes.margin}>
-              Bangalore
+              {currentWeather.city}
             </Typography>
-            <Typography variant="h1" className={classes.margin}>
-              26 &deg;C
+            <Typography variant="h2" className={classes.margin}>
+              {currentWeather.temp} &deg;C
             </Typography>
-            <Typography variant="subtitle1">Cloudy</Typography>
+            <Typography variant="subtitle1">{currentWeather.weather}</Typography>
           </CardContent>
         </Card>
       </div>

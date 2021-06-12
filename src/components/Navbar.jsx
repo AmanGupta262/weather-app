@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Typography, Button, Toolbar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { useDispatch } from "react-redux";
+import { fetchWeather } from "../actions/current";
 
 const useStyles = makeStyles({
   flexGrow: {
@@ -14,7 +16,12 @@ const useStyles = makeStyles({
 });
 
 function Navbar(props) {
+  const dispatch = useDispatch();
   const classes = useStyles();
+
+  const handleRefresh = () => {
+    dispatch(fetchWeather("update"))
+  }
   return (
     <>
       <AppBar position="static">
@@ -24,6 +31,9 @@ function Navbar(props) {
               Weather App
             </Link>
           </Typography>
+          <Button color="inherit" onClick={handleRefresh}>
+            Refresh
+          </Button>
           <Button color="inherit">
             <Link className={classes.linkStyle} to="/">
               Current Weather

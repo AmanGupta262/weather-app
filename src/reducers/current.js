@@ -2,6 +2,7 @@ import {
   CURRENT_START,
   CURRENT_SUCCESS,
   CURRENT_FAILED,
+  CURRENT_UPDATE,
 } from "../actions/actionTypes";
 
 const initialWeatherState = {
@@ -17,6 +18,7 @@ const initialWeatherState = {
   clouds: "",
   sunrise: "",
   susnset: "",
+  date: Date.now(),
   inProgress: false,
   error: "",
 };
@@ -29,10 +31,10 @@ export default function currentWeather(state = initialWeatherState, actions) {
         inProgress: true,
       };
     case CURRENT_SUCCESS:
-        console.log(actions)
       return {
         ...state,
         inProgress: false,
+        date: actions.date,
         city: actions.city,
         weather: actions.weather,
         weather_desc: actions.weather_desc,
@@ -51,6 +53,10 @@ export default function currentWeather(state = initialWeatherState, actions) {
         ...state,
         inProgress: false,
         error: actions.error,
+      };
+    case CURRENT_UPDATE:
+      return {
+        ...state,
       };
     default:
       return state;
