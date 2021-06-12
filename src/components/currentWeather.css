@@ -1,6 +1,15 @@
 .d-flex{
     display: flex;
 }
+.search-input{
+    outline: none;
+    padding: 7px 6px;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: inherit;
+    color: white;
+    font-size: .8rem;
+}
 .weather{
     margin-top: 3rem;
     padding: 1rem;
@@ -15,7 +24,8 @@
 }
 .weather-icon{
     margin-right: 1rem;
-    font-size: 3rem !important;
+    filter: brightness(2);
+    height: 100px;
 }
 .curr-temperature{
     font-size: 8rem;

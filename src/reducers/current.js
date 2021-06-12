@@ -20,6 +20,7 @@ const initialWeatherState = {
   susnset: "",
   date: Date.now(),
   time: "",
+  icon: "",
   inProgress: false,
   error: "",
 };
@@ -35,6 +36,7 @@ export default function currentWeather(state = initialWeatherState, actions) {
       return {
         ...state,
         inProgress: false,
+        icon: actions.icon,
         date: actions.date,
         time: actions.time,
         city: actions.city,

@@ -33,11 +33,15 @@ export function updateWeather() {
   };
 }
 
-export function fetchWeather(update) {
+function returnTime(time) {
+  return moment.unix(time).format("hh : mm A");
+}
+
+export function fetchWeather(search="Bengaluru", update="") {
   return (dispatch) => {
     dispatch(startFetching());
     const params = {
-      q: "Bengaluru",
+      q: search,
       units: "metric",
       appid: API_KEY,
     };
@@ -52,7 +56,6 @@ export function fetchWeather(update) {
       .then((data) => {
         if (data.cod === 200) {
           if (update) dispatch(updateWeather());
-          const date = new Date(data.dt * 1000 - data.timezone * 1000);
           const weatherData = {
             city: data.name,
             clouds: data.clouds.all,
@@ -62,13 +65,14 @@ export function fetchWeather(update) {
             pressure: data.main.pressure,
             humidity: data.main.humidity,
             feels_like: data.main.feels_like,
-            sunrise: data.sys.sunrise,
-            sunset: data.sys.sunset,
+            sunrise: returnTime(data.sys.sunrise),
+            sunset: returnTime(data.sys.sunset),
             wind_speed: data.wind.speed,
             weather: data.weather[0].main,
             weather_desc: data.weather[0].description,
-            date: moment(date).format("dddd"),
-            time: moment(date).format("HH : mm A")
+            icon: data.weather[0].icon,
+            date: moment.unix(data.dt).format("dddd"),
+            time: moment.unix(data.dt).format("hh : mm A"),
           };
           dispatch(fetchSuccess(weatherData));
           return;
