@@ -1,5 +1,14 @@
 import React from "react";
-import {Typography, Button, Paper, Card, CardContent } from "@material-ui/core";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchWeather } from "../actions/current";
+import {
+  Typography,
+  Button,
+  Paper,
+  Card,
+  CardContent,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
@@ -18,15 +27,20 @@ const useStyles = makeStyles({
     textAlign: "center",
     color: "white",
     boxShadow: "0 7px 30px -10px rgba(150,170,180,0.5)",
-    margin: "1rem"
+    margin: "1rem",
   },
-  margin :{
-      marginBottom: " 1rem"
-  }
+  margin: {
+    marginBottom: " 1rem",
+  },
 });
 
 function CurrentWeather(props) {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(fetchWeather());
+  },[]) 
 
   return (
     <>
