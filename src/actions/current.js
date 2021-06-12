@@ -68,6 +68,7 @@ export function fetchWeather(update) {
             weather: data.weather[0].main,
             weather_desc: data.weather[0].description,
             date: moment(date).format("dddd"),
+            time: moment(date).format("HH : mm A")
           };
           dispatch(fetchSuccess(weatherData));
           return;
