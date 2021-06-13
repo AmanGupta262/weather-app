@@ -29,13 +29,13 @@ function LineChart(props) {
     data: [
       {
         type: "spline",
-        name: "Minimum Temperature",
+        name: "min",
         showInLegend: true,
         dataPoints: minTemp,
       },
       {
         type: "spline",
-        name: "Maximum Temperature",
+        name: "max",
         showInLegend: true,
         dataPoints: maxTemp,
       },
