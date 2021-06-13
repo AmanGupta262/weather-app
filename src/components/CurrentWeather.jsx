@@ -60,6 +60,7 @@ function CurrentWeather(props) {
                 <div className="weather-type d-flex">
                   <img src={icon} alt="weather" className="weather-icon" />
                   {currentWeather.weather}
+                  <span className="weather-desc">{currentWeather.weather_desc}</span>
                 </div>
                 <div className="curr-temperature">
                   {currentWeather.temp}&deg;

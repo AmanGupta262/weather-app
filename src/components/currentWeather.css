@@ -27,6 +27,11 @@
     filter: brightness(2);
     height: 100px;
 }
+.weather-desc{
+    margin-left: 1rem;
+    font-size: .8rem;
+    text-transform: capitalize;
+}
 .curr-temperature{
     font-size: 8rem;
     font-weight: 300;
