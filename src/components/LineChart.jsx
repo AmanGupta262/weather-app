@@ -16,7 +16,6 @@ function LineChart(props) {
   const options = {
     animationEnabled: true,
     theme: "dark1",
-    width: 400,
     backgroundColor: "transparent",
     title: {
       text: "Temperature",
@@ -45,9 +44,7 @@ function LineChart(props) {
   
   return (
     <>
-      <div className="line-chart d-flex">
         <CanvasJSChart options = {options} />
-      </div>
     </>
   );
 }

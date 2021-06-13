@@ -4,6 +4,7 @@ import {
   SEVEN_DAYS_START,
   SEVEN_DAYS_SUCCESS,
   SEVEN_DAYS_FAILED,
+  SEVEN_DAYS_UPDATE
 } from "./actionTypes";
 import { APIUrls } from "../helpers/urls";
 
@@ -26,13 +27,22 @@ export function fetchFailed(error) {
     error,
   };
 }
+export function fetchUpdate() {
+  return {
+    type: SEVEN_DAYS_UPDATE,
+  };
+}
+
 
 function returnTime(time) {
   return moment.unix(time).format("hh : mm A");
 }
 
-export function fetchWeather() {
+export function fetchWeather(update) {
   return (dispatch) => {
+      if(update){
+          dispatch(fetchUpdate());
+      }
     dispatch(startFetching());
     const params = {
       lat: "12.9762",
@@ -71,7 +81,6 @@ export function fetchWeather() {
           weatherData.push(dayWeather);
           return "";
         });
-        console.log(weatherData);
         dispatch(fetchSuccess(weatherData));
         return;
       })

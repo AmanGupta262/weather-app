@@ -2,6 +2,7 @@ import {
   SEVEN_DAYS_START,
   SEVEN_DAYS_SUCCESS,
   SEVEN_DAYS_FAILED,
+  SEVEN_DAYS_UPDATE
 } from "../actions/actionTypes";
 
 const initialWeatherState = {
@@ -29,6 +30,10 @@ export default function sevenDaysWeather(state = initialWeatherState, actions) {
         inProgress: false,
         error: actions.error,
       };
+    case SEVEN_DAYS_UPDATE:
+        return {
+            ...state,
+        }
     default:
       return state;
   }
