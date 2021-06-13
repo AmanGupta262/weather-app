@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { LineChart } from "../";
-import {SingleDay} from "../";
-import './sevenWeather.css';
+import { SingleDay } from "../";
+import "./sevenWeather.css";
 
 function SevenWeather(props) {
-    const { days } = useSelector((state) => state.sevenDaysWeather);
+  const { days } = useSelector((state) => state.sevenDaysWeather);
 
   return (
     <>

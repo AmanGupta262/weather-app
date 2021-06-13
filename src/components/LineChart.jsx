@@ -1,5 +1,5 @@
 import React from "react";
-import { CanvasJSChart } from 'canvasjs-react-charts'
+import { CanvasJSChart } from "canvasjs-react-charts";
 import { useSelector } from "react-redux";
 
 function LineChart(props) {
@@ -8,8 +8,8 @@ function LineChart(props) {
   const minTemp = [];
   const maxTemp = [];
   days.map((day) => {
-    minTemp.push({ y: day.temp_min, label: day.date.substr(0,3) });
-    maxTemp.push({ y: day.temp_max, label: day.date.substr(0,3) });
+    minTemp.push({ y: day.temp_min, label: day.date.substr(0, 3) });
+    maxTemp.push({ y: day.temp_max, label: day.date.substr(0, 3) });
     return "";
   });
 
@@ -41,10 +41,10 @@ function LineChart(props) {
       },
     ],
   };
-  
+
   return (
     <>
-        <CanvasJSChart options = {options} />
+      <CanvasJSChart options={options} />
     </>
   );
 }

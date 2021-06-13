@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     padding: "0",
     background:
       "linear-gradient(180deg, rgba(9,29,77,1) 0%, rgba(150,97,161,1) 100%)",
-      minHeight: "100vh"
+    minHeight: "100vh",
   },
 });
 

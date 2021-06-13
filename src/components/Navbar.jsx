@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AppBar, Typography, Button, Toolbar } from "@material-ui/core";
+import {
+  AppBar,
+  Typography,
+  Button,
+  Toolbar,
+  withWidth,
+  Hidden,
+} from "@material-ui/core";
 import { Refresh, Search } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
@@ -44,17 +51,19 @@ function Navbar(props) {
               Weather
             </Link>
           </Typography>
-          <form>
-            <input
-              placeholder="Search city"
-              className="search-input"
-              id="search"
-              onChange={(e) => setSearch(e.target.value)}
-            />
-            <Button type="submit" color="inherit" onClick={handleSearch}>
-              <Search />
-            </Button>
-          </form>
+          <Hidden xsDown>
+            <form>
+              <input
+                placeholder="Search city"
+                className="search-input"
+                id="search"
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <Button type="submit" color="inherit" onClick={handleSearch}>
+                <Search />
+              </Button>
+            </form>
+          </Hidden>
           <Button color="inherit" onClick={handleRefresh}>
             <Refresh />
           </Button>
@@ -74,4 +83,4 @@ function Navbar(props) {
   );
 }
 
-export default Navbar;
+export default withWidth()(Navbar);

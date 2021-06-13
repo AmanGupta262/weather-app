@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Typography } from "@material-ui/core";
+import { Typography, withWidth, Hidden } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import "./currentWeather.css";
 
@@ -28,9 +28,6 @@ const useStyles = makeStyles({
 function CurrentWeather(props) {
   const classes = useStyles();
   const { currentWeather } = useSelector((state) => state);
-  const icon = `http://openweathermap.org/img/wn/${currentWeather.icon}@2x.png`;
-  console.log(currentWeather);
-
   return (
     <>
       <div className={classes.dFlex}>
@@ -58,7 +55,11 @@ function CurrentWeather(props) {
             <div className="weather d-flex">
               <div className="temperature d-flex">
                 <div className="weather-type d-flex">
-                  <img src={icon} alt="weather" className="weather-icon" />
+                  <img
+                    src={`http://openweathermap.org/img/wn/${currentWeather.icon}@4x.png`}
+                    alt="weather"
+                    className="weather-icon"
+                  />
                   {currentWeather.weather}
                   <span className="weather-desc">
                     {currentWeather.weather_desc}
@@ -69,8 +70,8 @@ function CurrentWeather(props) {
                 </div>
               </div>
               <div className="max-min-temp">
-                <div className="min-temp">{currentWeather.temp_min}&deg; C</div>
-                <div className="max-temp">{currentWeather.temp_max}&deg; C</div>
+                <div className="min-temp">{currentWeather.temp_min}&deg;C</div>
+                <div className="max-temp">{currentWeather.temp_max}&deg;C</div>
               </div>
             </div>
             <div className="details-container d-flex">
@@ -132,9 +133,7 @@ function CurrentWeather(props) {
                   />
 
                   <div className="detail-title">Sunrise</div>
-                  <div className="detail-data">
-                    {currentWeather.sunrise}
-                  </div>
+                  <div className="detail-data">{currentWeather.sunrise}</div>
                 </div>
                 <div className="detail d-flex">
                   <img
@@ -144,9 +143,7 @@ function CurrentWeather(props) {
                   />
 
                   <div className="detail-title">Sunset</div>
-                  <div className="detail-data">
-                    {currentWeather.sunset}
-                  </div>
+                  <div className="detail-data">{currentWeather.sunset}</div>
                 </div>
               </div>
             </div>
