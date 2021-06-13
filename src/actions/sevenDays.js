@@ -4,7 +4,6 @@ import {
   SEVEN_DAYS_START,
   SEVEN_DAYS_SUCCESS,
   SEVEN_DAYS_FAILED,
-  SEVEN_DAYS_UPDATE,
 } from "./actionTypes";
 import { APIUrls } from "../helpers/urls";
 
@@ -27,12 +26,60 @@ export function fetchFailed(error) {
     error,
   };
 }
-export function updateWeather() {
-  return {
-    type: SEVEN_DAYS_UPDATE,
-  };
-}
 
 function returnTime(time) {
   return moment.unix(time).format("hh : mm A");
+}
+
+export function fetchWeather(search = "Bengaluru") {
+  return (dispatch) => {
+    dispatch(startFetching());
+    const params = {
+      q: search,
+      units: "metric",
+      lat: "12.9762",
+      lon: "77.6033",
+      exclude: "minutely,hourly,current,alerts",
+      appid: API_KEY,
+    };
+    const config = {
+      method: "get",
+      url: APIUrls.current(),
+      params: params,
+    };
+
+    axios(config)
+      .then((response) => response.data)
+      .then((data) => {
+        if (data.cod === 200) {
+          const weatherData = [];
+          data.daily.map(day => {
+              const dayWeather = {
+                date:  moment.unix(day.dt).format("dddd"),
+                temp:  day.temp.day,
+                temp_min:  day.temp.min,
+                temp_min:  day.temp.max,
+                sunrise:  returnTime(day.sunrise),
+                sunset:  returnTime(day.sunset),
+                feels_like:  day.feels_like.day,
+                pressure: day.main.pressure,
+                humidity: day.main.humidity,
+                wind_speed: day.wind_speed,
+                weather: day.weather[0].main,
+                weather_desc: day.weather[0].description,
+                icon: day.weather[0].icon,
+              };
+              weatherData.push(dayWeather);       
+          })
+          console.log(weatherData);
+        //   dispatch(fetchSuccess(weatherData));
+          return;
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+        const errorMsg = error.response.data.message;
+        dispatch(fetchFailed(errorMsg));
+      });
+  };
 }
