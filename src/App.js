@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchWeather } from "./actions/current";
+import { fetchWeather as sevenDays } from "./actions/sevenDays";
 import { CssBaseline } from "@material-ui/core/";
 import { Container } from "@material-ui/core/";
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,6 +21,7 @@ function App() {
   const classes = useStyles();
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(sevenDays());
     dispatch(fetchWeather());
   }, [dispatch]);
   return (

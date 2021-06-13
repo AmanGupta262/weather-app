@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Navbar() {
+function Navbar(props) {
   const dispatch = useDispatch();
   const classes = useStyles();
   const [search, setSearch] = useState("");
