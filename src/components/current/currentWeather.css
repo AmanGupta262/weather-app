@@ -55,13 +55,15 @@
 }
 .details{
     margin-top: .5rem;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 .detail{
-    width: 40%;
+    width: 30%;
     flex-flow: column;
     margin-right: .5rem;
     justify-content: space-around;
+    margin-bottom: 1rem;
     padding: 1rem;
     align-items: center;
     border-radius: 10px;

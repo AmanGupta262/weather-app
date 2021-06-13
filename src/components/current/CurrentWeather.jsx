@@ -124,6 +124,30 @@ function CurrentWeather(props) {
                     {currentWeather.pressure} mb
                   </div>
                 </div>
+                <div className="detail d-flex">
+                  <img
+                    className="detail-icon"
+                    src={`${process.env.PUBLIC_URL}/icons/sunrise.svg`}
+                    alt=""
+                  />
+
+                  <div className="detail-title">Sunrise</div>
+                  <div className="detail-data">
+                    {currentWeather.sunrise}
+                  </div>
+                </div>
+                <div className="detail d-flex">
+                  <img
+                    className="detail-icon"
+                    src={`${process.env.PUBLIC_URL}/icons/sunset.svg`}
+                    alt=""
+                  />
+
+                  <div className="detail-title">Sunset</div>
+                  <div className="detail-data">
+                    {currentWeather.sunset}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

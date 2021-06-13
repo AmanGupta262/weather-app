@@ -1,5 +1,35 @@
+.single-container{
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-around;
+}
+.single{
+    padding: 1rem;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff26;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    color: white;
+}
+.single-weather-icon{
+    margin-top: -1rem;
+    filter: brightness(2);
+    height: 100px;
+    width: 100px;
+}
+.single-min-temp,
+.single-max-temp{
+    font-size: .65rem;
+}
 .line-chart{
-    margin-top: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    justify-content: center;
     background-color: #ffffff26;
     backdrop-filter: blur(5px);
 }

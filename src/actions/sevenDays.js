@@ -66,6 +66,7 @@ export function fetchWeather() {
             weather: day.weather[0].main,
             weather_desc: day.weather[0].description,
             icon: day.weather[0].icon,
+            id: day.weather[0].id,
           };
           weatherData.push(dayWeather);
           return "";

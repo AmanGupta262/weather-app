@@ -17,7 +17,7 @@ const initialWeatherState = {
   wind_speed: "",
   clouds: "",
   sunrise: "",
-  susnset: "",
+  sunset: "",
   date: Date.now(),
   time: "",
   icon: "",
@@ -50,7 +50,7 @@ export default function currentWeather(state = initialWeatherState, actions) {
         wind_speed: actions.wind_speed,
         clouds: actions.clouds,
         sunrise: actions.sunrise,
-        susnset: actions.sunset,
+        sunset: actions.sunset,
         feels_like: actions.feels_like,
       };
     case CURRENT_FAILED:
