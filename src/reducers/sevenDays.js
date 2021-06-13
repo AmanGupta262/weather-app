@@ -5,7 +5,7 @@ import {
 } from "../actions/actionTypes";
 
 const initialWeatherState = {
-    days: [],
+  days: [],
   inProgress: false,
   error: "",
 };
@@ -21,7 +21,7 @@ export default function sevenDaysWeather(state = initialWeatherState, actions) {
       return {
         ...state,
         inProgress: false,
-        days: [...actions.days]
+        days: [...actions.data],
       };
     case SEVEN_DAYS_FAILED:
       return {
@@ -33,4 +33,3 @@ export default function sevenDaysWeather(state = initialWeatherState, actions) {
       return state;
   }
 }
-

@@ -5,7 +5,7 @@ import { fetchWeather } from "./actions/current";
 import { CssBaseline } from "@material-ui/core/";
 import { Container } from "@material-ui/core/";
 import { makeStyles } from "@material-ui/core/styles";
-import { CurrentWeather, Navbar } from "./components";
+import { CurrentWeather, Navbar, SevenWeather } from "./components";
 
 const useStyles = makeStyles({
   contentStyle: {
@@ -30,7 +30,7 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path="/" component={CurrentWeather} />
-            <Route exact path="/seven/days" component={Navbar} />
+            <Route exact path="/seven/days" component={SevenWeather} />
           </Switch>
         </Container>
       </Router>

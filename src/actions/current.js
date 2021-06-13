@@ -37,7 +37,7 @@ function returnTime(time) {
   return moment.unix(time).format("hh : mm A");
 }
 
-export function fetchWeather(search="Bengaluru", update="") {
+export function fetchWeather(search = "Bengaluru", update = "") {
   return (dispatch) => {
     dispatch(startFetching());
     const params = {
