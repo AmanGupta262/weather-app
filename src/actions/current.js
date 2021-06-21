@@ -18,7 +18,7 @@ export function startFetching() {
 export function fetchSuccess(data) {
   return {
     type: CURRENT_SUCCESS,
-    ...data,
+    data,
   };
 }
 export function fetchFailed(error) {

@@ -25,39 +25,25 @@ const initialWeatherState = {
   error: "",
 };
 
-export default function currentWeather(state = initialWeatherState, actions) {
-  switch (actions.type) {
+export default function currentWeather(state = initialWeatherState, action) {
+  switch (action.type) {
     case CURRENT_START:
       return {
         ...state,
         inProgress: true,
       };
     case CURRENT_SUCCESS:
+      console.log(action)
       return {
         ...state,
         inProgress: false,
-        icon: actions.icon,
-        date: actions.date,
-        time: actions.time,
-        city: actions.city,
-        humidity: actions.humidity,
-        weather: actions.weather,
-        weather_desc: actions.weather_desc,
-        temp: actions.temp,
-        temp_min: actions.temp_min,
-        temp_max: actions.temp_max,
-        pressure: actions.pressure,
-        wind_speed: actions.wind_speed,
-        clouds: actions.clouds,
-        sunrise: actions.sunrise,
-        sunset: actions.sunset,
-        feels_like: actions.feels_like,
+        ...action.data,
       };
     case CURRENT_FAILED:
       return {
         ...state,
         inProgress: false,
-        error: actions.error,
+        error: action.error,
       };
     case CURRENT_UPDATE:
       return {
