@@ -1,8 +1,8 @@
 import {
-  FETCH_START,
-  FETCH_SUCCESS,
-  FETCH_FAILED,
-  FETCH_UPDATE,
+  SEVEN_DAYS_START,
+  SEVEN_DAYS_SUCCESS,
+  SEVEN_DAYS_FAILED,
+  SEVEN_DAYS_UPDATE,
 } from "../actions/actionTypes";
 
 const initialWeatherState = {
@@ -13,24 +13,24 @@ const initialWeatherState = {
 
 export default function sevenDaysWeather(state = initialWeatherState, actions) {
   switch (actions.type) {
-    case FETCH_START:
+    case SEVEN_DAYS_START:
       return {
         ...state,
         inProgress: true,
       };
-    case FETCH_SUCCESS:
+    case SEVEN_DAYS_SUCCESS:
       return {
         ...state,
         inProgress: false,
         days: [...actions.data],
       };
-    case FETCH_FAILED:
+    case SEVEN_DAYS_FAILED:
       return {
         ...state,
         inProgress: false,
         error: actions.error,
       };
-    case FETCH_UPDATE:
+    case SEVEN_DAYS_UPDATE:
       return {
         ...state,
       };

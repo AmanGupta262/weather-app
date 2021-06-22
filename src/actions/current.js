@@ -1,10 +1,10 @@
 import axios from "axios";
 import moment from "moment";
 import {
-  FETCH_START,
-  FETCH_SUCCESS,
-  FETCH_FAILED,
-  FETCH_UPDATE,
+  CURRENT_START,
+  CURRENT_SUCCESS,
+  CURRENT_FAILED,
+  CURRENT_UPDATE,
 } from "./actionTypes";
 import { APIUrls } from "../helpers/urls";
 
@@ -12,24 +12,24 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 export function startFetching() {
   return {
-    type: FETCH_START,
+    type: CURRENT_START,
   };
 }
 export function fetchSuccess(data) {
   return {
-    type: FETCH_SUCCESS,
+    type: CURRENT_SUCCESS,
     data,
   };
 }
 export function fetchFailed(error) {
   return {
-    type: FETCH_FAILED,
+    type: CURRENT_FAILED,
     error,
   };
 }
 export function updateWeather() {
   return {
-    type: FETCH_UPDATE,
+    type: CURRENT_UPDATE,
   };
 }
 

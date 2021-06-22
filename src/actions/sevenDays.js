@@ -1,10 +1,10 @@
 import axios from "axios";
 import moment from "moment";
 import {
-  FETCH_START,
-  FETCH_SUCCESS,
-  FETCH_FAILED,
-  FETCH_UPDATE,
+  SEVEN_DAYS_START,
+  SEVEN_DAYS_SUCCESS,
+  SEVEN_DAYS_FAILED,
+  SEVEN_DAYS_UPDATE,
 } from "./actionTypes";
 import { APIUrls } from "../helpers/urls";
 
@@ -12,24 +12,24 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 export function startFetching() {
   return {
-    type: FETCH_START,
+    type: SEVEN_DAYS_START,
   };
 }
 export function fetchSuccess(data) {
   return {
-    type: FETCH_SUCCESS,
+    type: SEVEN_DAYS_SUCCESS,
     data,
   };
 }
 export function fetchFailed(error) {
   return {
-    type: FETCH_FAILED,
+    type: SEVEN_DAYS_FAILED,
     error,
   };
 }
 export function fetchUpdate() {
   return {
-    type: FETCH_UPDATE,
+    type: SEVEN_DAYS_UPDATE,
   };
 }
 

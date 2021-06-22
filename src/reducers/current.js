@@ -1,8 +1,8 @@
 import {
-  FETCH_START,
-  FETCH_SUCCESS,
-  FETCH_FAILED,
-  FETCH_UPDATE,
+  CURRENT_START,
+  CURRENT_SUCCESS,
+  CURRENT_FAILED,
+  CURRENT_UPDATE,
 } from "../actions/actionTypes";
 
 const initialWeatherState = {
@@ -27,25 +27,25 @@ const initialWeatherState = {
 
 export default function currentWeather(state = initialWeatherState, action) {
   switch (action.type) {
-    case FETCH_START:
+    case CURRENT_START:
       return {
         ...state,
         inProgress: true,
       };
-    case FETCH_SUCCESS:
+    case CURRENT_SUCCESS:
       console.log(action)
       return {
         ...state,
         inProgress: false,
         ...action.data,
       };
-    case FETCH_FAILED:
+    case CURRENT_FAILED:
       return {
         ...state,
         inProgress: false,
         error: action.error,
       };
-    case FETCH_UPDATE:
+    case CURRENT_UPDATE:
       return {
         ...state,
       };

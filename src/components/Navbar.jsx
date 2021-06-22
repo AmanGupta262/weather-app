@@ -12,7 +12,7 @@ import { Refresh, Search } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
 import { fetchWeather } from "../actions/current";
-import { fetchWeather as sevenWeather } from "../actions/current";
+import { fetchWeather as sevenWeather } from "../actions/sevenDays";
 import { useState } from "react";
 
 const useStyles = makeStyles({
@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
   linkStyle: {
     color: "#fafafa",
-    textDecoration: "none",
+    textDecoration: "none",   
   },
 
   navbar: {
